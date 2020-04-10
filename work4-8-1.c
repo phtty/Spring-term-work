@@ -1,6 +1,6 @@
  #include <stdio.h>
 
- void main()
+ int main(void)
  {
     int num[10], temp, mid, x;
     //循环读入10个数至num数组
@@ -28,6 +28,7 @@
     //输出第一个数，由于被降序排列，这个数必定为最大
     printf("%d", num[0]);
 
+    return 0;
  }
 
 

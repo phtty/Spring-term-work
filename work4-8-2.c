@@ -3,13 +3,13 @@
 void main()
 {
     int num[10], temp, x;
-    //ѭ������10������
+    //用一个数组循环读入一组数
     for(temp=0;temp<10;temp++)
     {
         scanf("%d", &x);
         num[temp] = x;
     }
-
+    //倒序输出
     for(temp=9;temp>=0;temp--)
     {
         printf("%d ", num[temp]);

@@ -18,5 +18,7 @@ int main()
     while(fgets(buf, BUFSIZE, fr))
         printf("%s", buf);
 
+    fclose(fr);
+
     return 0;
 }

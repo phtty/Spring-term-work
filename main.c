@@ -3,23 +3,46 @@
 #include <conio.h>
 #include <windows.h>
 
+#include "cJSON\cJSON.h"
+
+#define CP "resource\\CP_IMFO.json"
+#define BUFSIZE 256
+
 int main()
 {
-    int j;
-    char a[60][60]={"    ###       ",//1 
-                    "    #*#       ",//2
-                    "    # #       ",//3 
-                    " ####O######  ",//4
-                    " #* OSO   *#  ",//5 
-                    " #####O#####  ",//6 
-                    "     # #      ",//7 
-                    "     #*#      ",//8 
-                    "     ###      ",//9 
-                    " 按下B键可退出 ",//10 
-                    " 按下R键可重来 ",//11
-                    };
-    for(j=1;j<=12;j++)
-        puts(a[j]);
+    FILE *level_IMFO;
+
+    int epx[10] = {0},
+        epy[10] = {0};
+
+    char Map[100][100],
+         buf[256],
+         cp[2048]={0};
+
+    level_IMFO = fopen(CP, "r");
+    if(NULL == level_IMFO)
+    {
+        printf("FILE OPEN FAULT!");
+        return -1;
+    }
+
+    while(fgets(buf, BUFSIZE, level_IMFO))
+        strcat(cp,buf);
+
+    cJSON *root = NULL, *checkpoint = NULL, *map = NULL,
+          *self_position = NULL, *end_position = NULL;
+    root = cJSON_Parse(cp);
+    if(!root)
+        printf("Error before: [%s]\n",cJSON_GetErrorPtr());
+    else
+    {
+        checkpoint = cJSON_GetObjectItem(root, "checkpoint_1");
+        map = cJSON_GetObjectItem(checkpoint, "map");
+        self_position = cJSON_GetObjectItem(checkpoint, "self_position");
+        end_position = cJSON_GetObjectItem(checkpoint, "end_position");
+        
+
+    }
 
     return 0;
 }

@@ -9,9 +9,9 @@
 #define CP "resource\\CP_IMFO.json"
 #define BUFSIZE 256
 
-int main()
+int get_info()
 {
-    FILE *level_IMFO;
+    FILE *level_INFO;
 
     int epx[10] = {0},epy[10] = {0},
         spx, spy;
@@ -20,14 +20,14 @@ int main()
 
     system("cls");//！！！！调试用！！！！
 
-    level_IMFO = fopen(CP, "r");//打开关卡信息文件
-    if(NULL == level_IMFO)//打开异常处理
+    level_INFO = fopen(CP, "r");//打开关卡信息文件
+    if(NULL == level_INFO)//打开异常处理
     {
         printf("FILE OPEN FAULT!");
         return -1;
     }
 
-    while(fgets(buf, BUFSIZE, level_IMFO))//把关卡信息文件字符串化，以便后续解析
+    while(fgets(buf, BUFSIZE, level_INFO))//把关卡信息文件字符串化，以便后续解析
         strcat(cp,buf);
 
     cJSON *root = NULL, *checkpoint = NULL, *map = NULL,
@@ -52,7 +52,6 @@ int main()
         {
             mapline = cJSON_GetArrayItem(map, temp);
             strcpy(Map[temp], mapline->valuestring);
-            puts(Map[temp]);
         }
 
         //从关卡信息中获取自机位置并保存到spx和spy中

@@ -1,4 +1,8 @@
 //需要的参数：自机位置（x y）,最多50列的地图数组（map）,4个终点的位置（epx[4] epy[4]）
+#include "stdio.h"
+#include "conio.h"
+#include "PB_action.h"
+
 
 int _Act(int x, int y, char map[][50], int epx[4], int epy[4])
 {

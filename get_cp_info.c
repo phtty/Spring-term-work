@@ -6,7 +6,7 @@
 #include "cJSON\cJSON.h"
 #include "cJSON\cJSON.c"
 
-#define CP "resource\\CP_IMFO.json"
+#define CP "resource\\CP_INFO.json"
 #define BUFSIZE 256
 
 int get_info()

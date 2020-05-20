@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <conio.h>
-#include <windows.h>
+#include <string.h>
 
 #include "cJSON\cJSON.h"
 
@@ -30,7 +29,8 @@ int main()
         strcat(cp,buf);
 
     cJSON *root = NULL, *checkpoint = NULL, *map = NULL,
-          *self_position = NULL, *end_position = NULL;
+          *self_position = NULL, *end_position = NULL,
+          *map_line = NULL, *ep = NULL;
     root = cJSON_Parse(cp);
     if(!root)
         printf("Error before: [%s]\n",cJSON_GetErrorPtr());
@@ -40,7 +40,12 @@ int main()
         map = cJSON_GetObjectItem(checkpoint, "map");
         self_position = cJSON_GetObjectItem(checkpoint, "self_position");
         end_position = cJSON_GetObjectItem(checkpoint, "end_position");
-        
+
+        while(map_line != NULL)
+        {
+            int temp = 0;
+            map_line = cJSON_GetArrayItem(map, temp);
+        }
 
     }
 

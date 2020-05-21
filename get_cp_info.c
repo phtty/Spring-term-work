@@ -9,7 +9,7 @@
 #define CP "resource\\CP_INFO.json"
 #define BUFSIZE 256
 
-int get_info()
+int get_info(int checkpoint_ID)
 {
     FILE *level_INFO;
 

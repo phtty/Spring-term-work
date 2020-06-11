@@ -3,7 +3,7 @@
 int main(void)
 {
     int ul=0,ll=0,nu=0,sp=0,an=0;
-    char str[50], *p;
+    char str[50],*p;
     p = str;
     gets(str);
 

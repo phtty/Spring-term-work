@@ -1,7 +1,7 @@
- #include <stdio.h>
+#include <stdio.h>
 
- int main(void)
- {
+int main(void)
+{
     int num[10], temp, mid, x;
     //循环读入10个数至num数组
     for(temp=0;temp<10;temp++)
@@ -29,6 +29,6 @@
     printf("%d", num[0]);
 
     return 0;
- }
+}
 
 

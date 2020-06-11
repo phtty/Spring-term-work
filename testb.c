@@ -1,19 +1,19 @@
-#include <stdio.h>
+#include "stdio.h"
 
 int main(void)
 {
-    int test[10];
-    int i;
+    int a[10], i;
 
-    for(i=0;i<=9;i++)
-    {//初始化数组
-        test[i] = 0;
-    }
+    for(i=0; i<10; scanf("%d",a+i++));
+    	for(i=0; i<10; i++)
+    	    if(a[i]==3)
+			{
+        	    printf("Yes, it is %d input\n",i+1);
+        	    break;
+        	}
 
-    for(i=0;i<=9;i++)
-    {//遍历并输出数组每一个元素在内存中的地址
-        printf("%d\n", &test[i]);
-    }
-
+    if(i==10)
+        printf("Didn't find 3\n");
     return 0;
 }
+

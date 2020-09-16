@@ -1,19 +1,11 @@
-#include "stdio.h"
+#include <stdio.h>
 
 int main(void)
 {
-    int a[10], i;
+    int a[3][2] = {10, 20, 30, 40, 50, 60};
+	int *(p)[2] = a;
 
-    for(i=0; i<10; scanf("%d",a+i++));
-    	for(i=0; i<10; i++)
-    	    if(a[i]==3)
-			{
-        	    printf("Yes, it is %d input\n",i+1);
-        	    break;
-        	}
+	printf("%d", *(*(p+2) + 1));
 
-    if(i==10)
-        printf("Didn't find 3\n");
-    return 0;
+	return 0;
 }
-
